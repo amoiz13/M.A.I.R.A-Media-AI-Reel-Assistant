@@ -1,0 +1,11 @@
+flask==3.1.2
+werkzeug==3.1.4
+moviepy
+ffmpeg-python
+selenium
+requests
+TTS
+aeneas
+gtts
+openai-whisper
+python-dotenv
