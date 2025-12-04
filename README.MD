@@ -1,75 +1,173 @@
-# 🧠 Viral Faceless Shorts Generator
+# 🤖 M.A.I.R.A — Media AI Reel Assistant
 
-An automated pipeline to generate **faceless YouTube Shorts** based on **Google Trends**. This system leverages AI-generated scripts, TTS voice, subtitle alignment, and FFmpeg video composition, all wrapped in a fully containerized architecture.
+An intelligent AI system that automatically generates **faceless viral short-form videos** from trending topics.
 
-## ❤️ Support This Project
+M.A.I.R.A transforms ideas into high-engagement video content — from research to rendering — without showing your face, writing scripts manually, or editing videos yourself.
 
-Maintaining and improving this open-source project takes significant time and effort.  
-If you find it useful, please consider **supporting my work via GitHub Sponsors**:
+Built by **Abdul Moiz Javaid**  
+_AI Engineer · Full-Stack Developer_
 
-👉 [GitHub Sponsors](https://github.com/sponsors/Dark2C)
+---
 
-Your support helps keep this project alive and free for the community. Thank you! 🙌
+## ✨ What M.A.I.R.A Does
 
-## 🚀 Features
+M.A.I.R.A is an **end-to-end AI-driven content engine** that converts trends into viral videos.
 
-- 🔥 **Trending Topic Detection** via Google Trends
-- 🤖 **Script Generation** using Google Gemini API
-- 🗣️ **Voice Synthesis** with Coqui TTS
-- ⏱️ **Forced Alignment** of subtitles using Aeneas
-- 🎬 **Video Composition** with FFmpeg
-- 🖥️ **One-Click Web Interface**
+It automatically:
 
-## 🧩 Pipeline Overview
+- 📈 Detects trending topics  
+- 🧠 Generates scripts using AI  
+- 🗣️ Converts text to realistic voice  
+- ⏱️ Synchronizes subtitles automatically  
+- 🎬 Renders complete videos  
+- 🌐 Provides a clean one-click web interface  
 
-1. **Scrape Google Trends**  
-   The `trendscraper` service uses Puppeteer to extract trending topics.
+---
 
-2. **Generate Script (Gemini)**  
-   It sends the trend to Gemini to generate a short, engaging script.
+## 🚀 Core Features
 
-3. **Text-to-Speech (Coqui)**  
-   The script is converted to speech using Coqui TTS.
+- 🔥 Trending topic discovery  
+- 🤖 AI short-script generation  
+- 🗣️ Text-to-Speech voiceover  
+- ⏲️ Subtitle alignment  
+- 🎬 Automatic video composition  
+- 🖥️ Web-based trigger UI  
+- 🐳 Dockerized and modular architecture  
 
-4. **Subtitle Alignment (Aeneas)**  
-   `speechalign` aligns the generated audio with the script to produce timed subtitles.
+---
 
-5. **Video Assembly (FFmpeg)**  
-   The system merges:
-   - A background video from `/videos` (named `default_*.mp4`)
-   - The voiceover audio
-   - Subtitles  
-   to create the final faceless short.
+## ⚙️ How It Works
 
-6. **Web Trigger Interface**  
-   Access a minimal frontend on port `80` to trigger everything with one click.
+### 1. Trend Detection
+M.A.I.R.A discovers trending topics.
 
-## 📦 Folder Structure
+### 2. AI Script Writer
+Each topic is transformed into a short viral-style script using an AI model.
+
+### 3. Voice Generation
+Scripts are converted into natural-sounding audio.
+
+### 4. Subtitle Timing
+Text and voice are aligned to produce subtitles.
+
+### 5. Video Rendering
+FFmpeg merges:
+
+- Background clip  
+- Voiceover  
+- Subtitles  
+
+Into a final video.
+
+### 6. Web Interface
+Trigger video generation using a browser.
+
+---
+
+## 🧩 Project Structure
 
 ```
-viral_faceless/
-├── trendscraper/      # Scraper + Gemini + FFmpeg composition API
-├── coqui/             # Coqui TTS container
-├── speechalign/       # Forced alignment via Aeneas
-├── nginx/             # Web interface + reverse proxy
-├── /videos/           # Background video clips (e.g., gameplay, press machine)
+MAIRA/
+├── trends-engine/     # Trend detection logic
+├── voice-engine/      # AI voice generation
+├── aligner/           # Subtitle timing
+├── renderer/          # Video composition (FFmpeg)
+├── web-ui/            # Control panel
+├── /videos/           # Background content
 ├── docker-compose.yml
+└── .env.example
 ```
 
-> **Note:** Background clips must be placed in `/videos` and named like `default_something.mp4`.
+---
 
-## 🐳 Usage
+## 🐳 Installation
 
-Rename the file `example.env` in `.env` and replace the placeholder Gemini API key with the one you generated from Google AI Studio, then start the pipeline with:
+### 1. Clone the Repository
+```bash
+git clone https://github.com/amoiz13/MAIRA-Media-AI-Reel-Assistant.git
+cd MAIRA-Media-AI-Reel-Assistant
+```
+
+### 2. Create Environment File
+Rename:
+
+```
+.env.example → .env
+```
+
+Add your AI API key inside the file.
+
+---
+
+### 3. Run M.A.I.R.A
 
 ```bash
 docker-compose up --build
 ```
 
-Access the web interface at [http://localhost](http://localhost) to generate your first viral Short.
+---
 
-## 🧠 Requirements
+### 4. Launch App
 
-- Docker + Docker Compose
-- Google Gemini API Key
-- At least one video clip in `/videos/`
+Access in browser:
+
+```
+http://localhost
+```
+
+Click and generate videos.
+
+---
+
+## 📦 Requirements
+
+- Docker + Docker Compose  
+- AI API Key  
+- Background videos placed in `/videos`  
+
+---
+
+## 🛠 Customization
+
+You can customize:
+
+- Voice models  
+- Subtitle design  
+- Video templates  
+- AI providers  
+- Web UI  
+- Upload automation  
+
+M.A.I.R.A is built to scale.
+
+---
+
+## 👨‍💻 Author
+
+**Abdul Moiz Javaid**
+
+AI Engineer · Full-Stack Developer  
+Passionate about automation, media intelligence, and AI pipelines.
+
+---
+
+## 📄 License
+
+MIT License — Free to use, modify, and distribute.
+
+---
+
+## 🌟 Roadmap
+
+- ✅ Multi-voice support  
+- ✅ Auto-upload to platforms  
+- ✅ AI thumbnails  
+- ✅ Analytics dashboard  
+- ✅ Monetization engine  
+- ✅ Cloud deployment  
+
+---
+
+If you'd like help improving this project:
+
+> Open an issue or message me — I’ll help you scale MAIRA.
